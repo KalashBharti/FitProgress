@@ -1,0 +1,19 @@
+.footer {
+    background-color: #111; // Dark background
+    color: #aaa; // Light text
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+  
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+  
+    p {
+      margin: 5px 0;
+    }
+  }
+  
