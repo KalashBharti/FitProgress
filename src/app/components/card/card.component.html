@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="card-content-wrapper" [ngClass]="{'card-content-reverse': id % 2 === 1 }" >
+       
+        <div class="card-content" >
+            <h2 class="card-title">{{title}}</h2>
+            <p class="card-description">{{text}}</p>
+        </div>
+        <div class="card-image">
+            <img [src]="img" alt="">
+        </div>
+    </div>
+</div>

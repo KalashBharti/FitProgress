@@ -1,8 +1,30 @@
 <div class="container">
 
     <div class="description">
-        <div>
-            <p>Start Maintaining You Progress </p>
+        <div class="heading-1">
+            <p >Start Maintaining You Progress </p>
+        </div>
+        <div class="heading-2">
+
+            <p >Achieve your goal
+                just </p>
+                <button>Start</button>
+        </div>
+        
+    </div>
+
+    <div class="more-details">
+        <div class="heading-1">
+            <p>Mark your daily progress</p>
+        </div>
+        <div class="cards">
+
+            <ng-container *ngFor="let card of cards; let i = index">
+            
+                <app-card [img]="card.img" [id]="i" [title]="card.title" [text]="card.text"></app-card>
+
+            </ng-container>
+            
         </div>
     </div>
 </div>
