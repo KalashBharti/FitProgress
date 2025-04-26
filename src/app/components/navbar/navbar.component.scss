@@ -1,0 +1,54 @@
+*{
+    // border: 1px solid red;
+
+    
+}
+nav{
+    display: flex;
+   justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #282c34;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin-left: 1rem;
+    li{
+        cursor: pointer;
+        &:hover{
+            color: #61dafb;
+        }
+    }
+}
+.account{
+  button{
+    
+    color: white;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+   &:hover{
+    border:2px solid #61dafb;
+   }
+  }
+}
+.logo{
+    img{
+        
+        margin-left: 1rem;
+        width: 6rem;
+        height: auto;
+        color: white;
+        filter: invert(1);
+    }
+}
