@@ -5,7 +5,11 @@
     text-align: center;
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
-  
+    position: relative;
+    bottom: 0;
+    display: block;
+    width: 100%;
+
     .footer-content {
       max-width: 1200px;
       margin: 0 auto;
