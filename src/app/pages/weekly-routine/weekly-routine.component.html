@@ -1,0 +1,54 @@
+ 
+ <div class="container">
+
+ <h2>Workout Planner</h2>
+
+  <span class="select-label" for="exercise-select">Choose Exercise for Monday:</span>
+  <!-- <mat-form-field>  
+  <select matNativeControl  id="exercise-select" [(ngModel)]="selectedExercise">
+
+    <ng-container *ngFor="let ex of exercises">
+      <option class="exersise-option" [value]="ex">{{ ex }}</option>
+    </ng-container>
+  </select>
+</mat-form-field> -->
+<mat-form-field>
+    <mat-label>Favorite food</mat-label>
+    <mat-select [(ngModel)]="selectedExercise">
+        <ng-container *ngFor="let ex of exercises">
+            <mat-option class="exersise-option" [value]="ex">{{ ex }}</mat-option>
+          </ng-container>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button (click)="addExercise()">Add</button>
+
+  <div class="week">
+
+  <ng-container *ngFor="let day of days; let i = index">
+    <div class="day-box" (click)="selectDay(i)" [ngClass]="{selected: i === currentInputDay}">
+      <h3>{{ day }}</h3>
+      <div id="{{day}}-exercises" class="exercise-list"></div>
+      <div id="monday-exercises" class="exercise-list" >
+        <ng-container *ngFor="let workout of weekRoutine[i]">
+            <div class="example-button-container">
+                <button mat-fab extended (click)="deleteWorkout(i,workout)">
+                    {{workout}}
+                    <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+        </ng-container>
+      </div>
+    </div>
+    </ng-container>
+    
+    </div>
+
+    <div class="submit-container">
+        <button mat-raised-button>Submit</button>
+    </div>
+  
+
+
+
+</div>
+
