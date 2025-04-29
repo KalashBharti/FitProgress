@@ -1,0 +1,60 @@
+.container{
+  padding: 1rem;
+}
+
+.day-box {
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    padding: 16px;
+    width: 300px;
+    margin-top: 20px;
+  }
+  .exercise-list {
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: white;
+    margin-top: 10px;
+  }
+  .exercise-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e0f7fa;
+    padding: 8px;
+    margin: 4px 0;
+    border-radius: 4px;
+  }
+
+  .week{
+    display: flex;
+    flex-wrap: wrap;
+   gap: 1rem;
+  }
+
+  .selected{
+    border-color:red;
+  }
+  .example-button-container{
+    button{
+      padding: 0rem 1rem;
+      background-color: red;
+      color: white;
+    }
+  }
+
+  .submit-container{
+    
+    margin-top: 2rem;
+    text-align: center;
+
+    button{
+      background-color: red;
+      color: white;
+    }
+  }
+
+  .select-label{
+    font-size: 1.4rem;
+  }
+
