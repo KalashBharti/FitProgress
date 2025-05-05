@@ -6,13 +6,15 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { HttpClient, HttpClientModule, HttpRequest, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 
 @Component({
   selector: 'app-weekly-routine',
-  imports: [NgFor, NgClass,FormsModule,MatIconModule, MatButtonModule, MatFormFieldModule, MatSelectModule, MatInputModule],
+  imports: [NgFor, NgClass,FormsModule,MatIconModule, MatButtonModule, MatFormFieldModule, MatSelectModule, MatInputModule,HttpClientModule],
   templateUrl: './weekly-routine.component.html',
-  styleUrl: './weekly-routine.component.scss'
+  styleUrl: './weekly-routine.component.scss',
+  
 })
 export class WeeklyRoutineComponent {
   exercises = [
@@ -24,8 +26,8 @@ export class WeeklyRoutineComponent {
     "Legs",
     "Core",
     "Forearms",
+    "Abs",
     "Rest Day",
-     "Abs"
   ];
   days = [
     "Monday",
@@ -37,12 +39,12 @@ export class WeeklyRoutineComponent {
     "Sunday"]
 
   weekRoutine: string[][] = Array.from({ length: 7 }, () => []);
-
+    
   currentInputDay = 0;
   selectedExercise: string = '';
- 
+    
   @ViewChildren('exerciseList') exerciseLists!: QueryList<ElementRef>;
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private httpClient: HttpClient ) {}
 
   isExersiseExist(day: string[], ex: string):boolean{
     for(let e of day)
@@ -60,7 +62,6 @@ export class WeeklyRoutineComponent {
         return;
 
       this.weekRoutine[this.currentInputDay].push(this.selectedExercise);
-      console.log(this.weekRoutine);
     }
   }
 
@@ -76,6 +77,21 @@ export class WeeklyRoutineComponent {
   //on submit
   onSubmit(){
     // weekRoutine should be send to the backend
+
+    for(let el of this.weekRoutine){
+      if(el.length === 0)
+      {
+        alert("All day must be filled");
+        return ;
+      }
+    }
+    const res = this.httpClient.post("http://localhost:8080/set-weekly-plan", {weeklyRoutine: this.weekRoutine});
+    
+   res.subscribe(response => {
+      return response
+  }).closed
+    
+    
     
   }
 }
